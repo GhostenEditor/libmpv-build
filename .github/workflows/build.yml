@@ -19,7 +19,7 @@ jobs:
         uses: dsaltares/fetch-gh-release-asset@master
         with:
           repo: 'GhostenEditor/libmpv-android-build'
-          version: 'tags/v1.0.1'
+          version: 'latest'
           file: 'lib-mpv-release.aar'
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: upload
