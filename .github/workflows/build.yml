@@ -16,15 +16,14 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: download
-        uses: iamazy/download-action@main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: dsaltares/fetch-gh-release-asset@master
         with:
-          url: 'https://github.com/GhostenEditor/libmpv-android-build/releases/download/v1.0.0/lib-mpv-release.aar'
-          actor: ${{ github.actor }}
-          repo: ${{ github.repository }}
+          repo: 'GhostenEditor/libmpv-android-build'
+          version: 'tags/v1.0.1'
+          file: 'lib-mpv-release.aar'
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: upload
         uses: actions/upload-artifact@v4
         with:
           name: media3-extension
-          path: ./*.aar
+          path: lib-mpv-release.aar
